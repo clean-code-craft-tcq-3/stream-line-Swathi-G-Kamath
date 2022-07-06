@@ -7,13 +7,13 @@ TEST_CASE("Test the generation of the sensor values")
     batterySensor batterySensorValues=getBatteryParameters();
 
     REQUIRE(batterySensorValues.SOCList.size()==50);
-    for(int i=0,i<80;i++)
+    for(int i=0;i<50;i++)
     {
         REQUIRE(20<=batterySensorValues.SOCList[i]);
         REQUIRE(batterySensorValues.SOCList[i]<=80);
     }
-    REQUIRE(batterySensorValues.chargeRateList.size()=50)
-    for(int i=0;i<80;i++)
+    REQUIRE(batterySensorValues.chargeRateList.size()==50)
+    for(int i=0;i<50;i++)
     {
         REQUIRE(0<=batterySensorValues.chargeRateList[i]);
         REQUIRE(batterySensorValues.chargeRateList[i]<0.8);
@@ -41,7 +41,7 @@ TEST_CASE("Test where data is sent to receiver through mock data")
 {
     mockSensorData mockSensorDataInstance;
     bool output=true;
-    REQUIRE(sendBatteryParameters(mockSensorDataInstance)=output));
+    REQUIRE(sendBatteryParameters(mockSensorDataInstance)==output));
     REQUIRE(mockSensorDataInstance.displayCounter==50);
     REQUIRE(mockSensorDataInstance.formatCounter==50);
 }
