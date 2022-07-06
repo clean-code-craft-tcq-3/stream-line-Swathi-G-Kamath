@@ -6,7 +6,7 @@ class displaySensorDataInterface
 {
     public:
         virtual void displayDataOnConsole(std::string data)=0;
-        virtual std::string displayFormattedData(unsigned int SOC, unsigned int temp)=0;
+        virtual std::string displayFormattedData(unsigned int SOC, signed int temp)=0;
 };
 
 class displaySensorData:public displaySensorDataInterface
