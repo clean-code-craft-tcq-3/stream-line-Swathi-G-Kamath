@@ -2,7 +2,7 @@
 #include "catch.hpp"
 #include "BatterySensorDataSender.hpp"
 
-TEST_CASE("Test the generation of the sensor values")
+TEST_CASE("Test for the generation of the sensor values")
 {
     batterySensor batterySensorValues=getBatteryParameters();
 
@@ -30,14 +30,14 @@ TEST_CASE("Test if the battery data is displaying on the console")
 }
 
 
-TEST_CASE("Test where data is sent to receiver")
+TEST_CASE("Test if data is sent to receiver")
 {
     displaySensorData actualSensorData;
     bool output=true;
     REQUIRE(sendBatteryParameters(actualSensorData)==output);
 }
 
-TEST_CASE("Test where data is sent to receiver through mock data")
+TEST_CASE("Test if data is sent to receiver through mock data")
 {
     mockSensorData mockSensorDataInstance;
     bool output=true;
