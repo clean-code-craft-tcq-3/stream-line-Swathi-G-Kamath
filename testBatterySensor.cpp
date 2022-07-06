@@ -25,8 +25,8 @@ TEST_CASE("Test if the battery data is displaying on the console")
   batterySensor batterySensorValues=getBatteryParameters();
   mockSensorData mockSensorDataInstance;
   displayBatterSensorValues(batterySensorValues,mockSensorDataInstance);
-  REQUIRE(mockSensorDataInstance.displayCounter==50);
-  REQUIRE(mockSensorDataInstance.formatCounter==50);
+  REQUIRE(mockSensorDataInstance.displayCounter==60);
+  REQUIRE(mockSensorDataInstance.formatCounter==60);
 }
 
 
@@ -42,6 +42,6 @@ TEST_CASE("Test where data is sent to receiver through mock data")
     mockSensorData mockSensorDataInstance;
     bool output=true;
     REQUIRE(sendBatteryParameters(mockSensorDataInstance)==output);
-    REQUIRE(mockSensorDataInstance.displayCounter==50);
-    REQUIRE(mockSensorDataInstance.formatCounter==50);
+    REQUIRE(mockSensorDataInstance.displayCounter==60);
+    REQUIRE(mockSensorDataInstance.formatCounter==60);
 }
