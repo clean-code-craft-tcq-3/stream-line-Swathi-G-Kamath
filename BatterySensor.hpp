@@ -6,7 +6,7 @@ using namespace std;
 #define MAX_TEMP 60
 #define MIN_SOC 20
 #define MAX_SOC 80
-#define TOTAL_COUNT 60
+#define TOTAL_COUNT 100
 
 struct batterySensor
 {
