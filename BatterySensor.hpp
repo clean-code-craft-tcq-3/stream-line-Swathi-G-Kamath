@@ -11,12 +11,12 @@ using namespace std;
 struct batterySensor
 {
     vector<unsigned int> SOCList;
-    vector<unsigned float> chargeRateList;
+    vector<signed float> chargeRateList;
 };
 
 int generateRandomSOCValues(int min, int max)
 {
-    vector<T> valueList;
+    vector<int> valueList;
     for(int i=0;i<TOTAL_COUNT;i++)
     {
         int randValue=rand()%(max-min+1)+min;
@@ -27,10 +27,10 @@ int generateRandomSOCValues(int min, int max)
 
 float generateRandomChargeRateValues(float min, float max)
 {
-    vector<T> valueList;
+    vector<float> valueList;
     for(int i=0;i<TOTAL_COUNT;i++)
     {
-        T randValue=(float)rand() / (float)max;
+        float randValue=(float)rand() / (float)max;
         valueList.push_back(randValue);
     }
     return valueList;
@@ -41,8 +41,8 @@ float generateRandomChargeRateValues(float min, float max)
 batterySensor getBatteryParameters()
 {
     batterySensor batterySensorValues;
-    batterySensorValues.SOCList=generateRandomSOCValues<unsigned int>(MIN_SOC,MAX_SOC);
-    batterySensorValues.chargeRateList=generateRandomValues<unsigned float>(MIN_CHARGERATE,MAX_CHARGERATE);
+    batterySensorValues.SOCList=generateRandomSOCValues(MIN_SOC,MAX_SOC);
+    batterySensorValues.chargeRateList=generateRandomValues(MIN_CHARGERATE,MAX_CHARGERATE);
     return batterySensorValues;
 }
 
