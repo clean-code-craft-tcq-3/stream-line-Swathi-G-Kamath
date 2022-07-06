@@ -35,7 +35,7 @@ class mockSensorData:public displaySensorDataInterface
             displayCounter++;
         }
         
-        std:string displayFormattedData(unsigned int /*SOC*/,unsigned int /*chargeRate*/)
+        std::string displayFormattedData(unsigned int /*SOC*/,unsigned int /*chargeRate*/)
         {
             formatCounter++;
             return "";
