@@ -14,7 +14,7 @@ class displaySensorData:public displaySensorDataInterface
     public:
         void displayDataOnConsole(std::string data)
         {
-            std::cout<<data<<std:endl;
+            std::cout<<data<<std::endl;
         }
         
         std::string displayFormattedData(unsigned int SOC, unsigned int chargeRate)
