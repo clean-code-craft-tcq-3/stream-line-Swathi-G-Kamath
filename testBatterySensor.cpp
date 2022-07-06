@@ -6,14 +6,14 @@ TEST_CASE("Test the generation of the sensor values")
 {
     batterySensor batterySensorValues=getBatteryParameters();
 
-    REQUIRE(batterySensorValues.SOCList.size()==50);
-    for(int i=0;i<50;i++)
+    REQUIRE(batterySensorValues.SOCList.size()==60);
+    for(int i=0;i<60;i++)
     {
         REQUIRE(20<=batterySensorValues.SOCList[i]);
         REQUIRE(batterySensorValues.SOCList[i]<=80);
     }
-    REQUIRE(batterySensorValues.chargeRateList.size()==50);
-    for(int i=0;i<50;i++)
+    REQUIRE(batterySensorValues.chargeRateList.size()==60);
+    for(int i=0;i<60;i++)
     {
         REQUIRE(0<=batterySensorValues.chargeRateList[i]);
         REQUIRE(batterySensorValues.chargeRateList[i]<0.8);
