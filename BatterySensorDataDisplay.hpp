@@ -6,7 +6,7 @@ class displaySensorDataInterface
 {
     public:
         virtual void displayDataOnConsole(std::string data)=0;
-        virtual std::string displayFormattedData(unsigned int SOC, unsigned int chargeRate)=0;
+        virtual std::string displayFormattedData(unsigned int SOC, unsigned int temp)=0;
 };
 
 class displaySensorData:public displaySensorDataInterface
@@ -17,10 +17,10 @@ class displaySensorData:public displaySensorDataInterface
             std::cout<<data<<std::endl;
         }
         
-        std::string displayFormattedData(unsigned int SOC, unsigned int chargeRate)
+        std::string displayFormattedData(unsigned int SOC, unsigned int temp)
         {
             std::string formattedData;
-            formattedData=std::to_string(SOC)+" "+std::to_string(chargeRate);
+            formattedData=std::to_string(SOC)+","+std::to_string(temp);
             return formattedData;
         }
 };
@@ -35,7 +35,7 @@ class mockSensorData:public displaySensorDataInterface
             displayCounter++;
         }
         
-        std::string displayFormattedData(unsigned int /*SOC*/,unsigned int /*chargeRate*/)
+        std::string displayFormattedData(unsigned int /*SOC*/,unsigned int /*temp*/)
         {
             formatCounter++;
             return "";
