@@ -14,8 +14,8 @@ bool sendBatteryParameters(displaySensorDataInterface &displaySensorDataInstance
     batterySensor batterySensorValues=getBatteryParameters();
     if(batterySensorValues.SOCList.empty()||batterySensorValues.chargeRateList.empty())
     {
-        return 0;
+        return false;
     }
     displayBatterSensorValues(batterySensorValues,displaySensorDataInstance);
-    return 1;
+    return true;
 }
