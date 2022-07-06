@@ -2,8 +2,8 @@
 using namespace std;
 #include <vector>
 
-#define MIN_CHARGERATE 0
-#define MAX_CHARGERATE 0.8
+#define MIN_TEMP -20
+#define MAX_TEMP 60
 #define MIN_SOC 20
 #define MAX_SOC 80
 #define TOTAL_COUNT 60
@@ -11,38 +11,26 @@ using namespace std;
 struct batterySensor
 {
     vector<unsigned int> SOCList;
-    vector<signed float> chargeRateList;
+    vector<signed int> tempValueList;
 };
 
-int generateRandomSOCValues(int min, int max)
+template<typename T>
+vector<T> generateRandomValues(T min, T max)
 {
-    vector<int> valueList;
+    vector<T> valueList;
     for(int i=0;i<TOTAL_COUNT;i++)
     {
-        int randValue=rand()%(max-min+1)+min;
+        T randValue=rand()%(max-min+1)+min;
         valueList.push_back(randValue);
     }
     return valueList;
 }
-
-float generateRandomChargeRateValues(float min, float max)
-{
-    vector<float> valueList;
-    for(int i=0;i<TOTAL_COUNT;i++)
-    {
-        float randValue=(float)rand() / (float)max;
-        valueList.push_back(randValue);
-    }
-    return valueList;
-}
-
-
 
 batterySensor getBatteryParameters()
 {
     batterySensor batterySensorValues;
-    batterySensorValues.SOCList=generateRandomSOCValues(MIN_SOC,MAX_SOC);
-    batterySensorValues.chargeRateList=generateRandomValues(MIN_CHARGERATE,MAX_CHARGERATE);
+    batterySensorValues.SOCList=generateRandomValues<unsigned int>(MIN_SOC,MAX_SOC);
+    batterySensorValues.tempValueList=generateRandomValues<signed int>(MIN_TEMP,MAX_TEMP);
     return batterySensorValues;
 }
 
