@@ -15,8 +15,6 @@ typedef struct
     float movingAverage;
 }statsData;
 
-float sensor1Data[SENSOR_DATA_SIZE];
-float sensor2Data[SENSOR_DATA_SIZE];
 
 void displayStatistics(statsData result);
 void getDataFromSender();
