@@ -22,7 +22,7 @@ jobs:
       run: ./senderexe
       
     - name: build receiver
-      run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o testsender testReceiverImplementation.cpp ./BatterySensorDataReceiver.c
+      run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o receiverexe testReceiverImplementation.cpp ./BatterySensorDataReceiver.c
       
     - name: run receiver
       run: ./receiverexe
