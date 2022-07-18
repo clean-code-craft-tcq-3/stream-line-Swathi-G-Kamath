@@ -1,5 +1,9 @@
 #include "BatterySensorDataReceiver.h"
 
+
+float sensor1Data[SENSOR_DATA_SIZE];
+float sensor2Data[SENSOR_DATA_SIZE];
+
 void getDataFromSender()
 {
     for (int dataStreamInterator = 0 ; dataStreamInterator < SENSOR_DATA_SIZE ; dataStreamInterator++)
