@@ -1,6 +1,6 @@
 #define CATCH_CONFIG_MAIN 
 
-#include "test/catch.hpp"
+#include "catch.hpp"
 #include "BatterySensorDataReceiver.h"
 
 SCENARIO("Get Sensor values from Sender part and get some statistics related data from it ")
