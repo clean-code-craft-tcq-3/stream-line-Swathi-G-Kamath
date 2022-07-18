@@ -19,7 +19,7 @@ SCENARIO("Get Sensor values from Sender part and get some statistics related dat
 		float expectedMaxSensor2  = 36.700001 ;
         float expectedAverageSensor1 = 5.645714;
         float expectedAverageSensor2 = 16.714285;
-     	int entrySize = 5;
+     	int entrySize = 2;
         statsData result1, result2;
         WHEN("Data is available from the sensor")
         {
