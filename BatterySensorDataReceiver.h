@@ -1,4 +1,5 @@
-#pragma once
+#ifndef RECEIVER_H
+#define RECEIVER_H
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -26,3 +27,4 @@ float calculateSimpleMovingAverage(float SensorData[], int entrySize, int lastSa
 statsData computeStatistics(float sensorData[], int streamDataSize, int movingAverageRange);
 
 
+#endif
