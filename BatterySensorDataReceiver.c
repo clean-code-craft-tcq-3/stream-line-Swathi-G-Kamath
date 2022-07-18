@@ -64,10 +64,3 @@ statsData computeStatistics(float sensorData[], int streamDataSize, int movingAv
     return result;
 }
 
-int main()
-{
-    float stream[7] = {22.0, 10.0, 15.5, 16.7, 36.7, 6.5, 9.6};
-    statsData result = computeStatistics(stream, 7, 2);
-    displayStatistics(result);
-    return 0;
-}
