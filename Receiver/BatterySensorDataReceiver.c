@@ -77,9 +77,9 @@ int main()
     {
         printf("%d,%d\n", sensor1Data[dataStreamInterator], sensor2Data[dataStreamInterator]);
     }
-    result = computeStatistics(sensor1Data, SENSOR_DATA_SIZE);
+    result = computeStatistics(sensor1Data, SENSOR_DATA_SIZE, 5);
     displayStatistics(result);
-    result1 = computeStatistics(sensor2Data, SENSOR_DATA_SIZE);
+    result1 = computeStatistics(sensor2Data, SENSOR_DATA_SIZE, 5);
     displayStatistics(result1);
     
     return 0;
