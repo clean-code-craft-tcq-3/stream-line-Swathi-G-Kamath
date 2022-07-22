@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <math.h>
 
-#define SENSOR_DATA_SIZE 50 
+#define SENSOR_DATA_SIZE 100 
 
 typedef struct 
 {
