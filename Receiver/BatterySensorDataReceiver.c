@@ -1,23 +1,20 @@
 #include "BatterySensorDataReceiver.h"
 
 
-float sensor1Data[SENSOR_DATA_SIZE];
-float sensor2Data[SENSOR_DATA_SIZE];
-
-int s1[SENSOR_DATA_SIZE];
-int s2[SENSOR_DATA_SIZE];
+int sensor1Data[SENSOR_DATA_SIZE];
+int sensor2Data[SENSOR_DATA_SIZE];
 
 void getDataFromSender()
 {
     for (int dataStreamInterator = 0 ; dataStreamInterator < SENSOR_DATA_SIZE ; dataStreamInterator++)
     {
-        scanf("%d,%d\n", &s1[dataStreamInterator], &s2[dataStreamInterator]);
+        scanf("%d,%d\n", &sensor1Data[dataStreamInterator], &sensor2Data[dataStreamInterator]);
     }
 }
 
-float getMinValueFromSensorDataStream(float SensorData[], int streamDataSize)
+int getMinValueFromSensorDataStream(int SensorData[], int streamDataSize)
 {
-    float min = SensorData[0];
+    int min = SensorData[0];
     for (int minValueIter = 0; minValueIter < streamDataSize; minValueIter++)
     {
         min = (min < SensorData[minValueIter]) ? min : SensorData[minValueIter];
@@ -25,9 +22,9 @@ float getMinValueFromSensorDataStream(float SensorData[], int streamDataSize)
     return min;
 }
 
-float getMaxValueFromSensorDataStream(float SensorData[], int streamDataSize)
+int getMaxValueFromSensorDataStream(int SensorData[], int streamDataSize)
 {
-    float max = SensorData[0];
+    int max = SensorData[0];
     for (int maxValueIter = 0; maxValueIter < streamDataSize; maxValueIter++)
     {
         max = (max > SensorData[maxValueIter]) ? max : SensorData[maxValueIter];
@@ -35,12 +32,12 @@ float getMaxValueFromSensorDataStream(float SensorData[], int streamDataSize)
     return max;
 }
 
-float calculateAverageValueFromSensorDataStream(float SensorData[], int streamDataSize)
+float calculateAverageValueFromSensorDataStream(int SensorData[], int streamDataSize)
 {
     float average = 0;
     for (int averValueIter = 0; averValueIter < streamDataSize; averValueIter++)
     {
-        average = average + SensorData[averValueIter];
+        average = average + float(SensorData[averValueIter]);
     }
     return (average/streamDataSize);
 }
@@ -50,7 +47,7 @@ float calculateSimpleMovingAverage(float SensorData[], int streamDataSize, int l
     float simpleMovingAver = 0;
     for(int simpleMovAverIter = (streamDataSize - lastSampleValue); simpleMovAverIter < streamDataSize; simpleMovAverIter++)
     {
-        simpleMovingAver = simpleMovingAver + SensorData[simpleMovAverIter];
+        simpleMovingAver = simpleMovingAver + float(SensorData[simpleMovAverIter]);
     }
     return (simpleMovingAver/lastSampleValue);
 }
@@ -58,10 +55,10 @@ float calculateSimpleMovingAverage(float SensorData[], int streamDataSize, int l
 void displayStatistics(statsData result)
 {
     
-    printf("\n***************************\nMIN_VALUE      = %f\nMAX_VALUE      = %f\nAVERAGE_VALUE  = %f\nMOVING_AVERAGE = %f\n***************************\n", result.minValue, result.maxValue, result.average, result.movingAverage);
+    printf("\n***************************\nMIN_VALUE      = %d\nMAX_VALUE      = %d\nAVERAGE_VALUE  = %f\nMOVING_AVERAGE = %f\n***************************\n", result.minValue, result.maxValue, result.average, result.movingAverage);
 }
 
-statsData computeStatistics(float sensorData[], int streamDataSize, int movingAverageRange)
+statsData computeStatistics(int sensorData[], int streamDataSize, int movingAverageRange)
 {
     statsData result;
     result.minValue = getMinValueFromSensorDataStream(sensorData, streamDataSize);
@@ -73,10 +70,17 @@ statsData computeStatistics(float sensorData[], int streamDataSize, int movingAv
 
 int main()
 {
+    statsData result, result1;
     getDataFromSender();
+    printf("Received data from Sender \n ");
     for (int dataStreamInterator = 0 ; dataStreamInterator < SENSOR_DATA_SIZE ; dataStreamInterator++)
     {
-        printf("%d,%d\n", s1[dataStreamInterator], s2[dataStreamInterator]);
+        printf("%d,%d\n", sensor1Data[dataStreamInterator], sensor2Data[dataStreamInterator]);
     }
+    result = computeStatistics(sensor1Data, SENSOR_DATA_SIZE);
+    displayStatistics(result);
+    result1 = computeStatistics(sensor2Data, SENSOR_DATA_SIZE);
+    displayStatistics(result1);
+    
     return 0;
 }
