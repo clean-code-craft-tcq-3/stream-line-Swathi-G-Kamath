@@ -68,4 +68,8 @@ statsData computeStatistics(float sensorData[], int streamDataSize, int movingAv
     return result;
 }
 
-
+int main()
+{
+    getDataFromSender();
+    return 0;
+}
