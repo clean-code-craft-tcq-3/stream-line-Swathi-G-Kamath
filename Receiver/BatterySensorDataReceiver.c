@@ -76,7 +76,7 @@ int main()
     getDataFromSender();
     for (int dataStreamInterator = 0 ; dataStreamInterator < SENSOR_DATA_SIZE ; dataStreamInterator++)
     {
-        printf("%d,%d\n", &s1[dataStreamInterator], &s2[dataStreamInterator]);
+        printf("%d,%d\n", s1[dataStreamInterator], s2[dataStreamInterator]);
     }
     return 0;
 }
