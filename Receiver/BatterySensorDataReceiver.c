@@ -68,6 +68,7 @@ statsData computeStatistics(int sensorData[], int streamDataSize, int movingAver
     return result;
 }
 
+#ifndef TEST_ENV
 int main()
 {
     statsData result, result1;
@@ -84,4 +85,5 @@ int main()
     
     return 0;
 }
+#endif
 
