@@ -4,11 +4,14 @@
 float sensor1Data[SENSOR_DATA_SIZE];
 float sensor2Data[SENSOR_DATA_SIZE];
 
+int s1[SENSOR_DATA_SIZE];
+int s2[SENSOR_DATA_SIZE];
+
 void getDataFromSender()
 {
     for (int dataStreamInterator = 0 ; dataStreamInterator < SENSOR_DATA_SIZE ; dataStreamInterator++)
     {
-        scanf("%f,%f\n", &sensor1Data[dataStreamInterator], &sensor2Data[dataStreamInterator]);
+        scanf("%d,%d\n", &s1[dataStreamInterator], &s2[dataStreamInterator]);
     }
 }
 
@@ -73,7 +76,7 @@ int main()
     getDataFromSender();
     for (int dataStreamInterator = 0 ; dataStreamInterator < SENSOR_DATA_SIZE ; dataStreamInterator++)
     {
-        printf("%f,%f\n", &sensor1Data[dataStreamInterator], &sensor2Data[dataStreamInterator]);
+        printf("%d,%d\n", &s1[dataStreamInterator], &s2[dataStreamInterator]);
     }
     return 0;
 }
