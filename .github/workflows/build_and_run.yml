@@ -20,6 +20,12 @@ jobs:
       
     - name: run sender
       run: ./senderexe
+
+    - name: build and test receiver part
+      run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o testreceiverexe testReceiver.cpp 
+      
+    - name: run testReceiver
+      run: ./testreceiverexe
       
     - name: build receiver
       run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o receiverexe Receiver/*.c*
@@ -27,7 +33,7 @@ jobs:
     - name: run receiver
       run: ./receiverexe
       
-    - name: run sender with receiver
+    - name: run sender along with receiver
       run: ./senderexe | ./receiverexe
 
     - name: collect coverage
