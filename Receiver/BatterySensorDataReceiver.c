@@ -42,7 +42,7 @@ float calculateAverageValueFromSensorDataStream(int SensorData[], int streamData
     return (average/streamDataSize);
 }
 
-float calculateSimpleMovingAverage(float SensorData[], int streamDataSize, int lastSampleValue)
+float calculateSimpleMovingAverage(int SensorData[], int streamDataSize, int lastSampleValue)
 {
     float simpleMovingAver = 0;
     for(int simpleMovAverIter = (streamDataSize - lastSampleValue); simpleMovAverIter < streamDataSize; simpleMovAverIter++)
