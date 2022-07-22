@@ -16,7 +16,7 @@ jobs:
         sudo apt-get install -y gcovr
         
     - name: build sender
-      run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o senderexe *testBatterySensor.c*
+      run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o senderexe testBatterySensor.cpp
       
     - name: run sender
       run: ./senderexe
