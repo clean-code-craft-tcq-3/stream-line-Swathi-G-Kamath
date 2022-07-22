@@ -11,16 +11,16 @@ SCENARIO("Get Sensor values from Sender part and get some statistics related dat
 {
     GIVEN("The Sensor Stream Data from sender is received from console")
     {	
-	    float Sensor1[] = {1.0, 22.0, 1.55, 3.67, 0.65, 0.98, 9.67};
-		float Sensor2[] = {22.0, 10.0, 15.5, 16.7, 36.7, 6.5, 9.6};
-	    int noOfSensor1Sample = 7;
-	    int noOfSensor2Sample = 7 ;
+	    int Sensor1[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99};
+		int Sensor2[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99};
+	    int noOfSensor1Sample = 100;
+	    int noOfSensor2Sample = 100 ;
 		float expectedMovAverageSensor1 = 5.325000 ;
 		float expectedMovAverageSensor2 = 8.050000 ;
-		float expectedMinSensor1 = 0.650000 ;
-		float expectedMaxSensor1 = 22.000000 ;
-		float expectedMinSensor2  = 6.500000 ;
-		float expectedMaxSensor2  = 36.700001 ;
+		int expectedMinSensor1 = 0 ;
+		int expectedMaxSensor1 = 99 ;
+		int expectedMinSensor2  = 0 ;
+		int expectedMaxSensor2  = 99 ;
         float expectedAverageSensor1 = 5.645714;
         float expectedAverageSensor2 = 16.714285;
      	int entrySize = 2;
