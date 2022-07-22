@@ -9,8 +9,8 @@
 
 typedef struct 
 {
-    float minValue;
-    float maxValue;
+    int minValue;
+    int maxValue;
     float average;
     float movingAverage;
 }statsData;
@@ -18,11 +18,11 @@ typedef struct
 
 void displayStatistics(statsData result);
 void getDataFromSender();
-float getMinValueFromSensorDataStream(float SensorData[], int streamDataSize);
-float getMaxValueFromSensorDataStream(float SensorData[], int streamDataSize);
-float calculateAverageValueFromSensorDataStream(float SensorData[], int streamDataSize);
-float calculateSimpleMovingAverage(float SensorData[], int entrySize, int lastSampleValue);
-statsData computeStatistics(float sensorData[], int streamDataSize, int movingAverageRange);
+int getMinValueFromSensorDataStream(int SensorData[], int streamDataSize);
+int getMaxValueFromSensorDataStream(int SensorData[], int streamDataSize);
+float calculateAverageValueFromSensorDataStream(int SensorData[], int streamDataSize);
+float calculateSimpleMovingAverage(int SensorData[], int entrySize, int lastSampleValue);
+statsData computeStatistics(int sensorData[], int streamDataSize, int movingAverageRange);
 
 
 #endif
