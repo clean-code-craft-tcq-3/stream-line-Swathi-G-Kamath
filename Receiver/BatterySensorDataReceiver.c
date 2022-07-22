@@ -71,5 +71,9 @@ statsData computeStatistics(float sensorData[], int streamDataSize, int movingAv
 int main()
 {
     getDataFromSender();
+    for (int dataStreamInterator = 0 ; dataStreamInterator < SENSOR_DATA_SIZE ; dataStreamInterator++)
+    {
+        printf("%f,%f\n", &sensor1Data[dataStreamInterator], &sensor2Data[dataStreamInterator]);
+    }
     return 0;
 }
